@@ -18,7 +18,7 @@ public class DashBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
 
-
+//recieving intent from main
         Intent intent=getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
        // Log.d("mylog","welcome,"+message);
@@ -33,6 +33,7 @@ public class DashBoard extends AppCompatActivity {
        // Log.d("MYLOG","welcome,"+message);
      //   else
        //    Toast.makeText(this,"user "+message+" not registered ",Toast.LENGTH_SHORT ).show();
+       //calling to  new activity
         Button  b;
         b=(Button)findViewById(R.id.Send);
         b.setOnClickListener(new View.OnClickListener(){

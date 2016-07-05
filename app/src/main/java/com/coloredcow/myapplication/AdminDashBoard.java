@@ -17,7 +17,7 @@ public class AdminDashBoard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dash_board);
-
+// add branch activity
         Button b;
         b=(Button)findViewById(R.id.addBranch);
         b.setOnClickListener(new View.OnClickListener(){
@@ -42,7 +42,7 @@ public class AdminDashBoard extends AppCompatActivity {
 
     }
     public void createButton()
-    {
+    {//programmically creating button..(still working on it)
         LinearLayout myLayout =(LinearLayout) findViewById(R.id.pannelAdmin);
 
         Button myButton = new Button(AdminDashBoard.this);

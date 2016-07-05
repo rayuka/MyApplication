@@ -31,23 +31,22 @@ public class MainActivity extends AppCompatActivity {
               test2(message, passw);
           }
           else {
-              //Method to call user ui
+              //Method to admin ui
               test1(message, passw);
           }
     }
     public void test1(String u, String p){
+        // creating intent for adminDashboard
         Intent intentAdmin = new Intent(this, AdminDashBoard.class);
         intentAdmin.putExtra(EXTRA_MESSAGE, u);
         startActivity(intentAdmin);
 
     }
     public void test2(String u,String p)
-    {   EditText editText=(EditText)findViewById(R.id.uid);
-        EditText e=(EditText)findViewById(R.id.pass);
-        String message=editText.getText().toString();
+    {
+        // intent for user dashboard
         Intent intentManager = new Intent(this, DashBoard.class);
-
-        intentManager.putExtra(EXTRA_MESSAGE, message);
+        intentManager.putExtra(EXTRA_MESSAGE, u);
         startActivity(intentManager);
     }
 }
