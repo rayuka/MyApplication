@@ -21,7 +21,7 @@ import java.net.URLEncoder;
 public class SignupActivity extends AsyncTask<String, Void, String> {
 
     private Context context;
-
+    String username,password;
     public SignupActivity(Context context) {
         this.context = context;
     }
@@ -30,8 +30,8 @@ public class SignupActivity extends AsyncTask<String, Void, String> {
     }
     @Override
     protected String doInBackground(String... arg0) {
-        String username = arg0[0];
-        String password = arg0[1];
+         username = arg0[0];
+         password = arg0[1];
 
         String link;
         String data;
@@ -50,6 +50,7 @@ public class SignupActivity extends AsyncTask<String, Void, String> {
             result = bufferedReader.readLine();
             //Toast.makeText(context,"hey there"+result,Toast.LENGTH_LONG);
             return result;
+            //return data;
         } catch (Exception e) {
             return new String("Exception: " + e.getMessage());
         }
@@ -57,7 +58,7 @@ public class SignupActivity extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-
+        Toast.makeText(context,username+"hey"+password,Toast.LENGTH_LONG).show();
         String jsonStr = result;
         Toast.makeText(context," hello ::exception"+jsonStr,Toast.LENGTH_LONG).show();
         if (jsonStr != null) {

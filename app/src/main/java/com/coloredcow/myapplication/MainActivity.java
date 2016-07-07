@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         String _mobile=mobile.getText().toString();
         String _cpass=cpass.getText().toString();
         if(_pass.equals(_cpass)) {
-            Toast.makeText(this, "Signing in...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Signing up...", Toast.LENGTH_SHORT).show();
             new SignupActivity(this).execute(_uname, _pass, _fname, _lname, _email, _mobile);
         }
         else{

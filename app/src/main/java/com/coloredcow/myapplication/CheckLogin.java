@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class CheckLogin extends AppCompatActivity {
     // Boolean my_first_time=true;
     //  Context c;
+  public final String PREFS_NAME = "MyPrefsFile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
