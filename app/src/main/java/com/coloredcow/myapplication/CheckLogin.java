@@ -1,4 +1,3 @@
-
 package com.coloredcow.myapplication;
 
 import android.content.Context;

@@ -2,6 +2,7 @@ package com.coloredcow.myapplication;
 /**
  * Created by asd on 7/6/2016.
  */
+
 import android.content.Context;
 import android.widget.Toast;
 import  android.content.Context;

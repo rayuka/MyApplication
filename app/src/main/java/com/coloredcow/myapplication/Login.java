@@ -9,23 +9,41 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
-EditText username, password;
-    String u,p;
+  public EditText username, password;
+  public  String u,p;
     public final static String EXTRA_MESSAGE="com.coloredcow.myapplication";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Button b;
-        b=(Button)findViewById(R.id.registeration);
+        b=(Button)findViewById(R.id.registration);
         b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                username=(EditText)findViewById(R.id.uname);
-                password=(EditText)findViewById(R.id.pass);
                 startActivity(new Intent(Login.this, MainActivity.class));
             }
         });
+
+
+        username=(EditText)findViewById(R.id.luname);
+        password=(EditText)findViewById(R.id.lpass);
+        u=username.getText().toString();
+        p=password.getText().toString();
+        setContentView(R.layout.activity_login);
+      Button c;
+        c=(Button)findViewById(R.id.login);
+        c.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intentManager = new Intent(Login.this, DashBoard.class);
+                intentManager.putExtra(EXTRA_MESSAGE, u);
+                startActivity(intentManager);
+            }
+        });
+
+
+
       /*  Button c;
         c=(Button)findViewById(R.id.login);
         c.setOnClickListener(new View.OnClickListener(){
@@ -42,7 +60,7 @@ EditText username, password;
                 }
                 else if(Validate(u,p).equals(2)){
                //manager
-                    Intent intentManager = new Intent(Login.this, AdminDashBoard.class);
+                    Intent intentManager = new Intent(Login.this, DashBoard.class);
                     intentManager.putExtra(EXTRA_MESSAGE, u);
                     startActivity(intentManager);
                 }

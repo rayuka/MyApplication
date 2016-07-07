@@ -20,7 +20,7 @@ public class DashBoard extends AppCompatActivity {
 
 //recieving intent from main
         Intent intent=getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(Login.EXTRA_MESSAGE);
        // Log.d("mylog","welcome,"+message);
        //if(message!="admin")
         Toast.makeText(this,"welcome "+message,Toast.LENGTH_SHORT ).show();
