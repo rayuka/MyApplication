@@ -9,7 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class CheckLogin extends AppCompatActivity {
-    static Boolean my_first_time=true;
+    // Boolean my_first_time=true;
     //  Context c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class CheckLogin extends AppCompatActivity {
             settings.edit().putBoolean("my_first_time", false).commit();
         } else {
             //     if(validate(u,p)){
-           Intent intentA = new Intent(this,MainActivity.class);// change trial to dashboard
+           Intent intentA = new Intent(this,DashBoard.class);// change trial to dashboard
            startActivity(intentA);
 
             //   }
