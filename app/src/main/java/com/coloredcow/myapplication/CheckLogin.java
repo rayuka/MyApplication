@@ -8,23 +8,25 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-public class CheckLogin extends AppCompatActivity {
+public class CheckLogin extends AppCompatActivity  {
      Boolean my_first_time=true;
-    //  Context c;
+    //ValidateLogin v= new ValidateLogin(this);
+    SharedPreferences settings;
   public final String PREFS_NAME = "MyPrefsFile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_login);
-
+      //  v.delegate = this;
 
         //final String PREFS_NAME = "MyPrefsFile";
 
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        settings = getSharedPreferences(PREFS_NAME, 0);
+        //v.execute();
 
         if (settings.getBoolean("my_first_time", true)) {
             //the app is being launched for first time, do something{
-
+          //  v.execute();
             Intent intentAdmin = new Intent(this, Login.class);
             startActivity(intentAdmin);
 
@@ -38,8 +40,15 @@ public class CheckLogin extends AppCompatActivity {
 
             //   }
         }
-/*
-        Intent intentAdmin = new Intent(this, MainActivity.class);
-        startActivity(intentAdmin);*/
+
     }
+/*
+    @Override
+    public void processFinish(String output) {
+        if(settings.getBoolean("my_first_time", true))
+        {
+
+        }
+
+    }*/
 }

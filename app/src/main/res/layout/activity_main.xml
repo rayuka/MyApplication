@@ -27,9 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="FIRST_NAME"
+            android:hint="FULL_NAME"
             android:ems="10"
-            android:id="@+id/firstName"
+            android:id="@+id/Name"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
             android:layout_marginBottom="5dp" />
@@ -38,9 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="LAST_NAME"
+            android:hint="LOCATION"
             android:ems="10"
-            android:id="@+id/lastName"
+            android:id="@+id/location"
             android:layout_margin="5dp" />
 
         <EditText

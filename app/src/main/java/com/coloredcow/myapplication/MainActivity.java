@@ -10,10 +10,15 @@
         import android.widget.EditText;
         import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    EditText username,password,email,firstname,cpass,lastname,mobile;
+        import org.json.JSONArray;
+        import org.json.JSONObject;
+
+ public class MainActivity extends AppCompatActivity implements AsyncResponse {
+    EditText username,password,email,name,cpass,location,mobile;
     public final static String EXTRA_MESSAGE="com.coloredcow.myapplication";
-    @Override
+    public static String result=null;
+     SignupActivity s= new SignupActivity(this);
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -23,20 +28,22 @@ public class MainActivity extends AppCompatActivity {
         username=(EditText)findViewById(R.id.uname);
         password=(EditText)findViewById(R.id.pass);
         email=(EditText)findViewById(R.id.Email);
-        firstname=(EditText)findViewById(R.id.firstName);
-        lastname=(EditText)findViewById(R.id.lastName);
+        name=(EditText)findViewById(R.id.Name);
+        location=(EditText)findViewById(R.id.location);
         mobile=(EditText)findViewById(R.id.phone);
         cpass=(EditText)findViewById(R.id.cpass);
         String _pass=password.getText().toString();
         String _uname=username.getText().toString();
         String _email=email.getText().toString();
-        String _fname=firstname.getText().toString();
-        String _lname=lastname.getText().toString();
+        String _name=name.getText().toString();
+        String _location=location.getText().toString();
         String _mobile=mobile.getText().toString();
         String _cpass=cpass.getText().toString();
+        String []a=new String[10000];
         if(_pass.equals(_cpass)) {
             Toast.makeText(this, "Signing up...", Toast.LENGTH_SHORT).show();
-            new SignupActivity(this).execute(_uname, _pass, _fname, _lname, _email, _mobile);
+            s.delegate=this;
+            s.execute(_uname, _pass, _name, _location, _email, _mobile);
 
         }
         else{
@@ -46,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+     @Override
+     public void processFinish(String output) {
+         result=output;
+        if(result.equals("SUCCESS"))
+            startActivity(new Intent(this, Login.class));
+     }
+
 /*if(validate(message,passw))
     {
     public void loggedIn(View v){

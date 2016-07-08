@@ -4,10 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -17,10 +15,10 @@ import java.net.URLEncoder;
 /**
  * Created by asd on 7/8/2016.
  */
-public class ValidateLogin extends AsyncTask<String, Void, String> {
+public class ValidateLogin extends AsyncTask<String, Void, String>
+{  public AsyncResponse delegate = null;
     private Context context;
     String username, password;
-    int i;
     public ValidateLogin(Context context) {
         this.context = context;
     }
@@ -69,13 +67,13 @@ public class ValidateLogin extends AsyncTask<String, Void, String> {
               //  Toast.makeText(context,"exception"+query_result,Toast.LENGTH_LONG).show();
                 if (query_result.equals("SUCCESS")) {
                     Toast.makeText(context, " Login successfull.", Toast.LENGTH_SHORT).show();
-                        R(1);
+
                 } else if (query_result.equals("FAILURE")) {
                     Toast.makeText(context, "Login failed.", Toast.LENGTH_SHORT).show();
-                    R(2);
+
                 } else {
                     Toast.makeText(context, "Couldn't connect to remote database.", Toast.LENGTH_SHORT).show();
-                    R(2);
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -84,11 +82,9 @@ public class ValidateLogin extends AsyncTask<String, Void, String> {
             }
         } else {
             Toast.makeText(context, "Couldn't get any JSON data.", Toast.LENGTH_SHORT).show();
-            R(2);
         }
+            delegate.processFinish(result);
+
     }
 
-    protected int R(int a){
-        return a;
-    }
 }
