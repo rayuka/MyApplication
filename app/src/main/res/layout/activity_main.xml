@@ -90,12 +90,13 @@
             android:layout_margin="5dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SIGN UP"
             android:id="@+id/register"
             android:onClick="signup"
             android:layout_gravity="center_horizontal" />
+
     </LinearLayout>
 
 </RelativeLayout>

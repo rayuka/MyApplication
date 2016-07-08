@@ -26,50 +26,39 @@ public class Login extends AppCompatActivity {
         });
 
 
-        username=(EditText)findViewById(R.id.luname);
-        password=(EditText)findViewById(R.id.lpass);
-        u=username.getText().toString();
-        p=password.getText().toString();
-      Button c;
+
+       Button c;
         c=(Button)findViewById(R.id.login);
         c.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intentManager = new Intent(Login.this, DashBoard.class);
-                intentManager.putExtra(EXTRA_MESSAGE, u);
-                startActivity(intentManager);
-            }
-        });
 
+                username=(EditText)findViewById(R.id.luname);
+                password=(EditText)findViewById(R.id.lpass);
+                u=username.getText().toString();
+                p=password.getText().toString();
 
-
-      /*  Button c;
-        c=(Button)findViewById(R.id.login);
-        c.setOnClickListener(new View.OnClickListener(){
-         /*   @Override
-            public void onClick(View v) {
-                if((Validate(u)).equals(1))
-
-              {
+                //        if((new ValidateLogin(Login.this).execute(u,p)).equals(1))
+          //    {
                     //admin
-                    Intent intentAdmin = new Intent(Login.this, AdminDashBoard.class);
+                    Intent intentAdmin = new Intent(Login.this, DashBoard.class);
                     intentAdmin.putExtra(EXTRA_MESSAGE, u);
                     startActivity(intentAdmin);
 
-                }
-                else if(Validate(u,p).equals(2)){
+            //    }
+                /*else if((new ValidateLogin(Login.this).execute(u,p)).equals(2)){
                //manager
-                    Intent intentManager = new Intent(Login.this, DashBoard.class);
+                Intent intentManager = new Intent(Login.this, DashBoard.class);
                     intentManager.putExtra(EXTRA_MESSAGE, u);
                     startActivity(intentManager);
-                }
-                else {
+                }*/
+              /*  else {
                     Toast.makeText(Login.this,"Wrong credentials",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(Login.this, Login.class));
-                }
+                }*/
 
             }
-        });*/
+        });
 
     }
 }
