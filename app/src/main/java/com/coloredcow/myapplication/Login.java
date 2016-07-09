@@ -73,10 +73,9 @@ public class Login extends AppCompatActivity implements AsyncResponse {
         result=output;
         if(result.equals("SUCCESS"))
         {
-            Intent intentAdmin = new Intent(Login.this, DashBoard.class);
+            Intent intentAdmin = new Intent(Login.this,DashBoard.class);
             intentAdmin.putExtra(EXTRA_MESSAGE, u);
             startActivity(intentAdmin);
-
         }
         else
             Toast.makeText(Login.this,"Wrong credentials",Toast.LENGTH_LONG).show();

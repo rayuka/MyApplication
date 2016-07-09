@@ -69,7 +69,8 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
                 if (query_result.equals("SUCCESS")) {
                     Toast.makeText(context, " Login successful.", Toast.LENGTH_SHORT).show();
 
-                } else if (query_result.equals("FAILURE")) {
+                }
+                else if (query_result.equals("FAILURE")) {
                     Toast.makeText(context, "Login failed.", Toast.LENGTH_SHORT).show();
 
                 } else {
