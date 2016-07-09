@@ -17,23 +17,16 @@ public class CheckLogin extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_login);
-      //  v.delegate = this;
-
-        //final String PREFS_NAME = "MyPrefsFile";
-
-        settings = getSharedPreferences(PREFS_NAME, 0);
-        //v.execute();
+        settings = getPreferences(Context.MODE_PRIVATE);
 
         if (settings.getBoolean("my_first_time", true)) {
-            //the app is being launched for first time, do something{
-          //  v.execute();
+            settings.edit().putBoolean("my_first_time", false).commit();
             Intent intentAdmin = new Intent(this, Login.class);
             startActivity(intentAdmin);
-
             Log.d("Comments", "First time");
-            // record the fact that the app has been started at least once
-          settings.edit().putBoolean("my_first_time", false).commit();
-        } else {
+        }
+        else {
+
             //     if(validate(u,p)){
            Intent intentA = new Intent(this,DashBoard.class);// change trial to dashboard
            startActivity(intentA);

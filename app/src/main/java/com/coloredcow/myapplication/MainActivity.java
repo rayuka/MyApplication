@@ -61,33 +61,4 @@
             startActivity(new Intent(this, Login.class));
      }
 
-/*if(validate(message,passw))
-    {
-    public void loggedIn(View v){
-        //intent for logged In page
-       //validation will be done here for now just taking an example. Manager and the user will have
-        //same login page but different dashboard
-       //   if(message.equals("vaibhav") && passw.equals("bobby") ) {
-      //    method to call clent ui
-              test2(message, passw);
-          }
-          else {
-              //Method to admin ui
-              test1(message, passw);
-          }
-    }
-    public void test1(String u, String p){
-        // creating intent for adminDashboard
-        Intent intentAdmin = new Intent(this, AdminDashBoard.class);
-        intentAdmin.putExtra(EXTRA_MESSAGE, u);
-        startActivity(intentAdmin);
-
-    }
-    public void test2(String u,String p)
-    {
-        // intent for user dashboard
-        Intent intentManager = new Intent(this, DashBoard.class);
-        intentManager.putExtra(EXTRA_MESSAGE, u);
-        startActivity(intentManager);
-    }*/
 }

@@ -19,6 +19,8 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
 {  public AsyncResponse delegate = null;
     private Context context;
     String username, password;
+    String query_result;
+
     public ValidateLogin(Context context) {
         this.context = context;
     }
@@ -30,7 +32,6 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
     protected String doInBackground(String... arg0) {
         username = arg0[0];
         password = arg0[1];
-
         String link;
         String data;
         BufferedReader bufferedReader;
@@ -40,7 +41,7 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
             data = "?username=" + URLEncoder.encode(username, "UTF-8");
             data += "&password=" + URLEncoder.encode(password, "UTF-8");
 
-            link = "http://192.168.1.20/piicus/login.php" + data;
+            link = "http://192.168.0.114/piicus/login.php" + data;
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
@@ -63,10 +64,10 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
         if (jsonStr != null) {
             try {
                 JSONObject jsonObj = new JSONObject(jsonStr);
-                String query_result = jsonObj.getString("query_result");
+                query_result = jsonObj.getString("query_result");
               //  Toast.makeText(context,"exception"+query_result,Toast.LENGTH_LONG).show();
                 if (query_result.equals("SUCCESS")) {
-                    Toast.makeText(context, " Login successfull.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, " Login successful.", Toast.LENGTH_SHORT).show();
 
                 } else if (query_result.equals("FAILURE")) {
                     Toast.makeText(context, "Login failed.", Toast.LENGTH_SHORT).show();
@@ -83,8 +84,7 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
         } else {
             Toast.makeText(context, "Couldn't get any JSON data.", Toast.LENGTH_SHORT).show();
         }
-            delegate.processFinish(result);
-
+            delegate.processFinish(query_result);
     }
 
 }

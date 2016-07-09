@@ -10,14 +10,13 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity implements AsyncResponse {
   public EditText username, password;
-  public  String u,p;
+  public  String u,p,result;
     public final static String EXTRA_MESSAGE="com.coloredcow.myapplication";
     ValidateLogin _login=new ValidateLogin(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-       _login.delegate=this;
         Button b;
         b=(Button)findViewById(R.id.registration);
         b.setOnClickListener(new View.OnClickListener(){
@@ -28,7 +27,7 @@ public class Login extends AppCompatActivity implements AsyncResponse {
         });
 
 
-
+/*
 
 
        Button c;
@@ -41,13 +40,14 @@ public class Login extends AppCompatActivity implements AsyncResponse {
                 password=(EditText)findViewById(R.id.lpass);
                 u=username.getText().toString();
                 p=password.getText().toString();
+                _login.delegate=Login.this;
                 _login.execute(u,p);
             }
-        });
+        });*/
 
     }
 
-    @Override
+   /*Override
     public void processFinish(String output) {
         if(output.equals("SUCCESS"))
         {
@@ -59,5 +59,26 @@ public class Login extends AppCompatActivity implements AsyncResponse {
         else
             Toast.makeText(Login.this,"Wrong credentials",Toast.LENGTH_LONG).show();
 
+    }*/
+    public void chooseDash(View v)
+    {
+        username=(EditText)findViewById(R.id.luname);
+        password=(EditText)findViewById(R.id.lpass);
+        u=username.getText().toString();
+        p=password.getText().toString();
+        _login.delegate=Login.this;
+        _login.execute(u,p);
+    }
+    public void processFinish(String output) {
+        result=output;
+        if(result.equals("SUCCESS"))
+        {
+            Intent intentAdmin = new Intent(Login.this, DashBoard.class);
+            intentAdmin.putExtra(EXTRA_MESSAGE, u);
+            startActivity(intentAdmin);
+
+        }
+        else
+            Toast.makeText(Login.this,"Wrong credentials",Toast.LENGTH_LONG).show();
     }
 }
