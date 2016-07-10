@@ -41,7 +41,7 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
             data = "?username=" + URLEncoder.encode(username, "UTF-8");
             data += "&password=" + URLEncoder.encode(password, "UTF-8");
 
-            link = "http://192.168.0.114/piicus/login.php" + data;
+            link = "http://192.168.0.137/piicus/login.php" + data;
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
@@ -66,7 +66,7 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
                 JSONObject jsonObj = new JSONObject(jsonStr);
                 query_result = jsonObj.getString("query_result");
               //  Toast.makeText(context,"exception"+query_result,Toast.LENGTH_LONG).show();
-                if (query_result.equals("SUCCESS")) {
+                if (query_result.equals("SUCCESS")||query_result.equals("SUCCESSFUL")) {
                     Toast.makeText(context, " Login successful.", Toast.LENGTH_SHORT).show();
 
                 }
