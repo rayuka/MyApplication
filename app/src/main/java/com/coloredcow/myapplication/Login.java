@@ -35,8 +35,15 @@ public class Login extends AppCompatActivity implements AsyncResponse {
         password=(EditText)findViewById(R.id.lpass);
         u=username.getText().toString();
         p=password.getText().toString();
+        if(u.equals("")||p.equals(""))
+        {
+            Toast.makeText(Login.this,"Wrong credentials",Toast.LENGTH_LONG).show();
+            startActivity(new Intent(Login.this, Login.class));
+        }
+        else{
         _login.delegate=Login.this;
         _login.execute(u,p);
+    }
     }
     public void processFinish(String output) {
         result=output;
@@ -64,8 +71,14 @@ public class Login extends AppCompatActivity implements AsyncResponse {
             intentAdmin.putExtra(EXTRA_MESSAGE, u);
             startActivity(intentAdmin);
         }
-
-        else
+        else  if (result.equals("FAILURE"))       {
             Toast.makeText(Login.this,"Wrong credentials",Toast.LENGTH_LONG).show();
+            startActivity(new Intent(Login.this, Login.class));
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Do Here what ever you want do on back press;
     }
 }

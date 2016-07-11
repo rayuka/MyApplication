@@ -41,7 +41,7 @@ public class ValidateLogin extends AsyncTask<String, Void, String>
             data = "?username=" + URLEncoder.encode(username, "UTF-8");
             data += "&password=" + URLEncoder.encode(password, "UTF-8");
 
-            link = "http://192.168.0.137/piicus/login.php" + data;
+            link = "http://192.168.1.20/piicus/login.php" + data;
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 

@@ -13,7 +13,6 @@
         </activity>
         <activity android:name=".DashBoard" />
         <activity android:name=".AdminDashBoard" />
-        <activity android:name=".UserRegistration" />
         <activity android:name=".CheckLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -39,7 +39,7 @@
         String _location=location.getText().toString();
         String _mobile=mobile.getText().toString();
         String _cpass=cpass.getText().toString();
-        String []a=new String[10000];
+        //String []a=new String[10000];
         if(_pass.equals(_cpass)) {
             Toast.makeText(this, "Signing up...", Toast.LENGTH_SHORT).show();
             s.delegate=this;
@@ -56,9 +56,11 @@
 
      @Override
      public void processFinish(String output) {
-         result=output;
-        if(result.equals("SUCCESS"))
-            startActivity(new Intent(this, Login.class));
+         result = output;
+         if (result.equals("SUCCESS"))
+             startActivity(new Intent(this, Login.class));
+         else {
+             Toast.makeText(this, "registration failed", Toast.LENGTH_SHORT).show();
+         }
      }
-
 }
