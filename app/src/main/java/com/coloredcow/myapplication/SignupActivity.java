@@ -49,7 +49,7 @@ import java.net.URLEncoder;
             data += "&email=" + URLEncoder.encode(email, "UTF-8");
             data += "&mobile=" + URLEncoder.encode(mobile, "UTF-8");
 
-            link = "http://192.168.1.20/piicus/signup.php" + data;
+            link = "http://192.168.0.100/piicus/signup.php" + data;
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 

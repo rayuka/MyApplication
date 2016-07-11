@@ -109,7 +109,7 @@ public class UpdateSale extends AsyncTask<String, Void, String>
             data = "?username=" + URLEncoder.encode(username, "UTF-8");
             data += "&sale=" + URLEncoder.encode(sale, "UTF-8");
 
-            link = "http://192.168.1.20/piicus/upsales.php" + data;
+            link = "http://192.168.0.100/piicus/upsales.php" + data;
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
@@ -135,23 +135,23 @@ public class UpdateSale extends AsyncTask<String, Void, String>
                 query_result = jsonObj.getString("query_result");
                 //  Toast.makeText(context,"exception"+query_result,Toast.LENGTH_LONG).show();
                 if (query_result.equals("SUCCESS")||query_result.equals("SUCCESSFUL")) {
-                    Toast.makeText(context, " Login successful.", Toast.LENGTH_SHORT).show();
+ //                   Toast.makeText(context, " Login successful.", Toast.LENGTH_SHORT).show();
 
                 }
                 else if (query_result.equals("FAILURE")) {
-                    Toast.makeText(context, "Login failed.", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Login failed.", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(context, "Couldn't connect to remote database.", Toast.LENGTH_SHORT).show();
+  //                  Toast.makeText(context, "Couldn't connect to remote database.", Toast.LENGTH_SHORT).show();
 
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                Toast.makeText(context, "Error parsing JSON data.", Toast.LENGTH_SHORT).show();
+    //            Toast.makeText(context, "Error parsing JSON data.", Toast.LENGTH_SHORT).show();
                 // Toast.makeText(context,"exception"+e.getMessage(),Toast.LENGTH_LONG).show();
             }
         } else {
-            Toast.makeText(context, "Couldn't get any JSON data.", Toast.LENGTH_SHORT).show();
+      //      Toast.makeText(context, "Couldn't get any JSON data.", Toast.LENGTH_SHORT).show();
         }
         delegate.processFinish(query_result);
     }

@@ -23,7 +23,15 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="show Sales"
-            android:id="@+id/addBranch" />
+            android:id="@+id/addBranch"
+            android:onClick="signup"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/city" />
 
         <Button
             android:layout_width="match_parent"
