@@ -18,7 +18,7 @@ import java.net.URLEncoder;
  * Created by asd on 7/11/2016.
  */
 public class GetSale extends AsyncTask<String, Void, String> {
-    public Transporter delegate = null;
+    public Transporter del = null;
     private Context context;
     String username;
     String password;
@@ -44,7 +44,7 @@ public class GetSale extends AsyncTask<String, Void, String> {
         try {
             data = "?location=" + URLEncoder.encode(location, "UTF-8");;
 
-            link = "http://192.168.0.100/piicus/viewSales.php" + data;
+            link = "http://192.168.1.20/piicus/viewSales.php" + data;
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             String line="";
@@ -89,6 +89,6 @@ public class GetSale extends AsyncTask<String, Void, String> {
         } else {
   //          Toast.makeText(context, "Couldn't get any JSON data.", Toast.LENGTH_SHORT).show();
         }
-        delegate.TransferArray(query_result);
+        del.TransferArray(query_result);
     }
 }

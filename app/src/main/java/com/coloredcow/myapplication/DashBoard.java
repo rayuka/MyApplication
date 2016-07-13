@@ -30,7 +30,7 @@ public class DashBoard extends AppCompatActivity implements AsyncResponse {
         Intent intent = getIntent();
         String message = intent.getStringExtra(Login.EXTRA_MESSAGE);
         username=message;
-        Toast.makeText(DashBoard.this,message, Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(DashBoard.this,message, Toast.LENGTH_SHORT).show();
         //if(message!="admin")
         Toast.makeText(this, "welcome " + message, Toast.LENGTH_SHORT).show();
         TextView textView = new TextView(this);

@@ -109,7 +109,7 @@ public class UpdateSale extends AsyncTask<String, Void, String>
             data = "?username=" + URLEncoder.encode(username, "UTF-8");
             data += "&sale=" + URLEncoder.encode(sale, "UTF-8");
 
-            link = "http://192.168.0.100/piicus/upsales.php" + data;
+            link = "http://192.168.1.20/piicus/upsales.php" + data;
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 

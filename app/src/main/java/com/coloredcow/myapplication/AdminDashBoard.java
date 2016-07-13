@@ -23,10 +23,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminDashBoard extends AppCompatActivity implements Transporter {
+public class AdminDashBoard extends AppCompatActivity implements Transporter, AsyncResponse {
     public final static String EXTRA_MESSAGE = "com.coloredcow.myapplication";
     public static String result = null;
     GetSale p = new GetSale(this);
+    CheckLoc cl=new CheckLoc(this);
     EditText local;
     String location;
 
@@ -35,6 +36,7 @@ public class AdminDashBoard extends AppCompatActivity implements Transporter {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dash_board);
 // add branch activity
+        Toast.makeText(this,"welcome admin",Toast.LENGTH_LONG).show();
         Button c = (Button) findViewById(R.id.logout);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,9 +59,10 @@ public class AdminDashBoard extends AppCompatActivity implements Transporter {
         if (location.equals(""))
             startActivity(new Intent(AdminDashBoard.this, AdminDashBoard.class));
         else {
-            p.delegate = this;
-            p.execute(location);
-
+                cl.delegate=this;
+                cl.execute(location);
+           /* p.del = this;
+            p.execute(location);*/
         }
     }
 
@@ -109,4 +112,19 @@ public class AdminDashBoard extends AppCompatActivity implements Transporter {
     });
 
         }
+
+    @Override
+    public void processFinish(String output) {
+    if(output.equals("SUCCESS"))
+    {
+        p.del = this;
+        p.execute(location);
+    }
+        else {
+        Toast.makeText(this,"your branches aren't available in this city",Toast.LENGTH_LONG).show();
+        startActivity(new Intent(AdminDashBoard.this, AdminDashBoard.class));
+    }
+
+
+    }
 }
